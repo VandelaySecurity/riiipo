@@ -1,0 +1,16 @@
+
+name: okokok
+on:
+  pull_request:
+    branches: develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Analyze with Inspect OO
+      run: |
+        number=${{github.event.review_comment.body}}
+      env:
+        SHIFTLEFT_ORG_ID: ${{ secrets.SHIFTLEFT_ORG_ID }}
+        SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
+        SHIFTLEFT_API_TOKEN: ${{ secrets.SHIFTLEFT_API_TOKEN }}
