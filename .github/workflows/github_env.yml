@@ -1,0 +1,17 @@
+name: workflow
+
+on:
+  - pull_request
+  
+jobs:
+  first-job:
+    runs-on: ubunut-latest
+    env:
+      pr_title: ${{ github.event.pull_request.title }}
+    steps:
+      - run: echo "TITLE=$pr_title" >> $GITHUB_ENV
+      - run: echo "dummy" > test.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: test.txt
