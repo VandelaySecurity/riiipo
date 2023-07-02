@@ -22,3 +22,5 @@ jobs:
         run: |
           cd bin
           # publish the artifact
+
+
